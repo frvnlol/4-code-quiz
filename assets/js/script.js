@@ -27,60 +27,60 @@ var userInitials = document.querySelector("#user-initials");
 
 var clearHighscores = document.querySelector("#clear-hs");
 var highscoresPg = document.querySelector("#highscores-pg");
-var scoreEl = document.querySelector('#score');
-
+var highscoresEl = document.querySelector("#highscore-list");
+var scoreEl = document.querySelector("#score");
 
 // Questions and answers variable
 var questions = [
-    {
-        question: "Which country is Thorfinn from?",
-        answers: ["1. England", "2. Iceland", "3. Denmark", "4. Vinland"],
-        correctAnswer: "2",
-    },
-    {
-        question: "Thofinns father was a  _________",
-        answers: ["1. Jomsviking", "2. Pirate", "3. Vikingiking", "4. Civilian"],
-        correctAnswer: "1",
-    },
-    {
-        question: "After the fall of King Sweyn, who took over as King of Denmark?",
-        answers: [
-            "1. Canute",
-            "2. Askeladd",
-            "3. Harald II",
-            "4. Canute and Harald",
-        ],
-        correctAnswer: "3",
-    },
-    {
-        question:
-        "In Season 2, who befriended Thorfinn when they first arrived at the farm?",
-        answers: ["1. Ketil", "2. Olmar", "3. Einar", "4. Snake"],
-        correctAnswer: "3",
-    },
-    {
-        question: "How does Thorkell know Thorfinns father, Thors?",
-        answers: [
-            "1. They were enemies",
-            "2. They were both Jomsvikings",
-            "3. They met in Iceland",
-            "4. All of the above",
-        ],
-        correctAnswer: "2",
-    },
-    {
-        question: "What is Thorfinns most famous quote?",
-        answers: [
-            "1. I want to be a kinder, gentler person. I want to be a stronger person.",
-            "2. Tatakae, Tatakae",
-            "3. Believe it!",
-            "4. When granted everything, you cant do anything",
-        ],
-        correctAnswer: "1",
-    },
+  {
+    question: "Which country is Thorfinn from?",
+    answers: ["1. England", "2. Iceland", "3. Denmark", "4. Vinland"],
+    correctAnswer: "2",
+  },
+  {
+    question: "Thofinns father was a  _________",
+    answers: ["1. Jomsviking", "2. Pirate", "3. Viking", "4. Civilian"],
+    correctAnswer: "1",
+  },
+  {
+    question: "After the fall of King Sweyn, who took over as King of Denmark?",
+    answers: [
+      "1. Canute",
+      "2. Askeladd",
+      "3. Harald II",
+      "4. Canute and Harald",
+    ],
+    correctAnswer: "3",
+  },
+  {
+    question:
+      "In Season 2, who befriended Thorfinn when they first arrived at the farm?",
+    answers: ["1. Ketil", "2. Olmar", "3. Einar", "4. Snake"],
+    correctAnswer: "3",
+  },
+  {
+    question: "How does Thorkell know Thorfinns father, Thors?",
+    answers: [
+      "1. They were enemies",
+      "2. They were both Jomsvikings",
+      "3. They met in Iceland",
+      "4. All of the above",
+    ],
+    correctAnswer: "2",
+  },
+  {
+    question: "What is Thorfinns most famous quote?",
+    answers: [
+      "1. I want to be a kinder, gentler person. I want to be a stronger person.",
+      "2. Tatakae, Tatakae",
+      "3. Believe it!",
+      "4. When granted everything, you cant do anything",
+    ],
+    correctAnswer: "1",
+  },
 ];
 
-// 
+//
 var timerCount = 60;
 var currQuestion = 0;
 var score = 0;
@@ -114,7 +114,6 @@ function loadQuestions() {
   answer2.textContent = questions[currQuestion].answers[1];
   answer3.textContent = questions[currQuestion].answers[2];
   answer4.textContent = questions[currQuestion].answers[3];
-  console.log('hi there')
 }
 
 // Checks whether user answer is correct or wrong. Then moves onto next question.
@@ -133,16 +132,15 @@ function answerCheck(event) {
   } else {
     timerCount = timerCount - 15;
     checkAnswer.textContent = "Wrong";
-  };
+  }
   // Move on to next question
-  
+
   currQuestion++;
-  if (currQuestion === questions.length){
-      clearInterval(timer);
-      endGame();
-    } else {
-        console.log('Hello')
-        loadQuestions();
+  if (currQuestion === questions.length) {
+    clearInterval(timer);
+    endGame();
+  } else {
+    loadQuestions();
   }
 }
 
@@ -150,13 +148,74 @@ function answerCheck(event) {
 function endGame() {
   questionsPg.style.display = "none";
   quizFin.style.display = "block";
-  scoreEl.textContent = score;
-  timerEl.style.display = 'none';
+  scoreEl.textContent = score + " / 150";
+  timerEl.style.display = "none";
+}
+
+function showHighscores() {
+  var scores = readScores();
+  console.log(scores[0].name);
+  console.log(scores[0].score)
+  highscoresPg.style.display = "block";
+  questionsPg.style.display = "none";
+  startEl.style.display = "none";
+  quizFin.style.display = 'none';
+
+  for(var i = 0; i < scores.length; i++){
+   var scoreList = document.createElement('li');
+   scoreList.textContent = scores[i].name + ":  " + scores[i].score;
+   highscoresEl.appendChild(scoreList);
+  }
+}
+
+function storedScores() {
+  var initials = userInitials.value;
+  console.log(initials);
+  var nameScore = {
+    name: initials,
+    score: score,
+  }
+ var scoreArr = readScores();
+ if (scoreArr === null){
+  scoreArr = [];
+ };
+  // add initials and score to the array
+  scoreArr.push(nameScore);
+  // sort array by score
+  scoreArr.sort((a, b) => b.score - a.score);
+  // turn the JS object into a string JSON.stringify
+  var scoreString = JSON.stringify(scoreArr);
+  // store string in localStorage localStorage.setItem(itemName);
+  localStorage.setItem('scores', scoreString);
+ 
+  showHighscores();
+}
+
+function readScores() {
+
+  // get data from localStorage localStorage.getItem(itemName);
+  var getScores = localStorage.getItem('scores');
+  // turn the string into a JS object JSON.parse
+  var parseScores = JSON.parse(getScores);
+  // return
+  return parseScores;
+}
+
+function clearHS() {
+  highscoresEl.innerHTML = '';
+}
+
+function refresh() {
+  window.location.reload();
 }
 
 // Event Listeners
 startBtn.addEventListener("click", startGame);
-
+viewHighscores.addEventListener("click", showHighscores);
+submitBtn.addEventListener('click', storedScores);
+clearHighscores.addEventListener('click', clearHS)
+backBtn.addEventListener('click', refresh);
 choicesBtn.forEach(function (click) {
   click.addEventListener("click", answerCheck);
 });
+

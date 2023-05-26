@@ -23,6 +23,15 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 
+## Deployed Page
+
+Screenshot of page
+![frvnlol github io_4-code-quiz_](https://github.com/frvnlol/4-code-quiz/assets/131290908/5ea67a15-7a81-4590-9f53-9791aae75b72)
+
+
+
+
+Visit my deployed page [here](https://frvnlol.github.io/4-code-quiz/)
 
 ## Credits
 
@@ -32,3 +41,6 @@ Source I used to add a click event to all answer buttons using querySelectorAll 
 
 Credit to the TA's for giving guidance during Office Hours.
 
+## License
+
+Please refer to LICENSE in repository.

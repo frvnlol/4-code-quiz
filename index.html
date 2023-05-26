@@ -12,24 +12,28 @@
       <!--Highscores and Timer section-->
       <header>
         <button class="button" id="view-Highscores">View Highscores</button>
-        <p id="time-left">Time: 00:00</p>
+        <p id="time-left">Time: 60</p>
       </header>
 
       <!--Intro page section-->
       <main>
        <div class="container">
         <section class="start-page" id="start-page">
-          <h1>Quiz Challenge</h1>
-          <p>Try answering the following questions correctly. Keep in mind that for every question you get wrong, you will lose  time. Ready for the challenge? Click the button below</p>
-          <button class="button" id="strt-btn">Start Quiz</button>
+          <h1>Vinland Saga Quiz Challenge</h1>
+          <p>Try answering the following Vinland Saga related questions correctly. Keep in mind that for every question you get wrong, you will lose time. Ready for the challenge? Click the button below. WARNING: MAY CONTAIN SPOILERS</p>
+          <button class="button" id="start-btn">Start Journey</button>
         </section>
 
         <section class="questions-pg" id="questions-pg">
           <div>
-            <h2 id="questions">Insert Questions Here</h2>
-              <ol>
-                <!--Add questions here-->
-              </ol>
+            <h1 id="questions">Insert Questions Here</h1>
+              <ul id="answer-key">
+                <li><button class="choices-btn" id="answer1" value="1">Answer1</button></li>
+                <li><button class="choices-btn" id="answer2" value="2">Answer2</button></li>
+                <li><button class="choices-btn" id="answer3" value="3">Answer3</button></li>
+                <li><button class="choices-btn" id="answer4" value="4">Answer4</button></li>
+                
+              </ul>
           </div>
 
 
@@ -41,8 +45,8 @@
 
         <!--Quiz complete section-->
         <section class="quiz-fin" id="quiz-fin">
-          <h2 id="quiz-fin-title">All Done!</h2>
-          <p>Your final score is: 0</p>
+          <h1 id="quiz-fin-title">All Done!</h1>
+          <p>Your final score is: <span id="score"></span></p>
           <p>Enter Initials
             <input type="text" id="user-initials">
             <button class="button" id="submit-btn">Submit</button>
@@ -50,8 +54,8 @@
         </section>
 
         <!--Highscores section-->
-        <section class="highscores" id="highscores">
-          <h2>Current Highscores</h2>
+        <section class="highscores" id="highscores-pg">
+          <h1>Current Highscores</h1>
           <ol>
             <!--Add list of highscores here-->
           </ol>

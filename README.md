@@ -25,7 +25,7 @@ THEN I can save my initials and score
 
 ## Deployed Page
 
-Screenshot of [page](./assets/images/Screen%20Shot%202023-05-26%20at%2011.53.13%20PM.png)
+Screenshot of ![page](./assets/images/Screen%20Shot%202023-05-26%20at%2011.53.13%20PM.png)
 
 
 

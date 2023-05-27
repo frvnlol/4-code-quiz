@@ -26,7 +26,8 @@ THEN I can save my initials and score
 ## Deployed Page
 
 Screenshot of page
-![frvnlol github io_4-code-quiz_](https://github.com/frvnlol/4-code-quiz/assets/131290908/5ea67a15-7a81-4590-9f53-9791aae75b72)
+![frvnlol github io_4-code-quiz_](https://github.com/frvnlol/4-code-quiz/assets/131290908/1fd98ac1-b998-48fd-8182-e24f43676000)
+
 
 
 

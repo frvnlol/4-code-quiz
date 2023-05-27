@@ -69,10 +69,10 @@ var questions = [
     correctAnswer: "2",
   },
   {
-    question: "What is Thorfinns most famous quote?",
+    question: "Which of these is said by Thorfinn?",
     answers: [
       "1. I want to be a kinder, gentler person. I want to be a stronger person.",
-      "2. Tatakae, Tatakae",
+      "2. Does not have one",
       "3. Believe it!",
       "4. When granted everything, you cant do anything",
     ],

@@ -33,7 +33,7 @@ var scoreEl = document.querySelector("#score");
 // Questions and answers variable
 var questions = [
   {
-    question: "Which country is Thorfinn from?",
+    question: "Where are Thorfinn and his family from?",
     answers: ["1. England", "2. Iceland", "3. Denmark", "4. Vinland"],
     correctAnswer: "2",
   },
@@ -54,8 +54,8 @@ var questions = [
   },
   {
     question:
-      "In Season 2, who befriended Thorfinn when they first arrived at the farm?",
-    answers: ["1. Ketil", "2. Olmar", "3. Einar", "4. Snake"],
+      "Vinland Saga season 2 is animated by _______",
+    answers: ["1. Wit Studio", "2. Studio Perriot", "3. Mappa", "4. Studio Ghibli"],
     correctAnswer: "3",
   },
   {

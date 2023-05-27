@@ -1,10 +1,13 @@
-* {
-    border: red solid 1px;
-    
-} 
+:root {
+    --white: #fff;
+    --smallfont: 20px;
+    --mediumfont: 25px;
+
+}
 
 body {
     background-color: rgb(186, 186, 186);
+    background-image: url(../images/vsbg.jpeg);
     
 
 }
@@ -19,7 +22,8 @@ header {
 
 header #time-left{
     float: right;
-    font-size: 20px;
+    font-size: var(--smallfont);
+    color: var(--white);
 }
 
 h1 {
@@ -28,10 +32,6 @@ h1 {
     text-shadow: 2px 2px rgb(49, 49, 49);
     padding-bottom: 10px;
     font-size: 45px;
-}
-
-p {
- font-size: 20px;
 }
 
 main {
@@ -56,10 +56,10 @@ main {
 }
 
 .button {
-    background: white;
+    background: var(--white);
     border-radius: 3px;
     cursor: grab;
-    font-size: 20px;
+    font-size: var(--smallfont);
 }
 
 .button:hover {
@@ -67,11 +67,12 @@ main {
 }
 
 .choices-btn {
-    background: white;
-    font-size: 20px;
-    min-width: 120px;
+    background: var(--white);
+    font-size: var(--smallfont);
+    min-width: 121px;
     min-height: 50px;
     padding: 10px;
+    border-radius: 7px;
 
 }
 
@@ -82,12 +83,50 @@ main {
 
 .start-page > p {
     margin: 1.4rem;
-   line-height: 25px;
+   line-height: 32px;
+   color: var(--white);
+   background-color: rgb(5, 5, 5);
+    font-size: var(--mediumfont);
 }
+
+
 
 #answer-key {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+    left: 50px;
     
 }
+
+#correct-incorrect {
+    color: var(--white);
+    font-size: var(--smallfont);
+    padding: 15px;
+}
+
+
+
+#quiz-fin > p{
+    color: var(--white);
+    font-size: var(--smallfont);
+    margin: 15px 0;
+}
+
+#quiz-fin > #end-score {
+    font-size: var(--mediumfont);
+}
+
+#highscore-list > li {
+    font-size: var(--mediumfont);
+    color: var(--white);
+    margin: 10px 0;
+    
+}
+
+#back-btn,
+#clear-hs {
+    margin-top: 15px;
+}
+
